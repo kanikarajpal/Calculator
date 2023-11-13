@@ -7,11 +7,17 @@ items.forEach((item) => item.addEventListener("click", handleClick));
 function handleClick() {
   const clickedItem = this.innerText;
   switch (clickedItem) {
-    case "AC":
+    case "C":
       inputText = "";
       break;
     case "X":
       inputText = inputDiv.value.slice(0, -1);
+      break;
+    case ".":
+      const lastNumIndex = inputText.match(/[\d.]+$/).index;
+      const lastNum = inputText.substring(lastNumIndex);
+      const dotCount = lastNum.split(".").length - 1;
+      inputText += dotCount === 0 ? "." : "";
       break;
     case "=":
       inputText =
@@ -20,7 +26,9 @@ function handleClick() {
     default:
       inputText += clickedItem;
   }
-  inputDiv.value = inputText;
+
+  if (inputDiv.value !== "Error" || clickedItem === "C")
+    inputDiv.value = inputText;
 }
 
 function evaluateExpression(expression) {
