@@ -10,12 +10,15 @@
   --black: #000;
   --white: #fff;
 }
+h1 {
+  font-family: "Roboto";
+}
 .container {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 2rem;
-  padding: 2rem 1rem;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
 }
 .mainContainer {
   display: flex;
